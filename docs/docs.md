@@ -66,3 +66,23 @@ export default App;
 
 We can setup component into index file by exporting them into it. We can update react router element with
 components and display them into pages.
+
+### Link Component
+
+To set up link, we can update the homepage with a Link component to the page for going page to page.
+We can set into homapage which will show to about page from below syntax:
+```js
+    < Link to='/about'>About Page</Link>
+```
+`to` is the location where page will be redirecting.So by this way we can set up the link component into the router. To create an external link, we can use `a` tag for that.
+```html
+<a href="https://google.com/">Google</a>
+```
+or
+```js
+ < Link to='https://google.com/'>Google Home</Link>
+ ```
+
+ ### Nesting pages(Outlet Component)
+
+ We can nest pages using Children. We can nest into children with other component passing as an object element.By passing them, we can show all pages the same content from the root directory. For setting a default root page, we can set `index : true`. We can use `Outlet` component from react router to nest the pages. Also we can do for all the pages for the root page setup.
