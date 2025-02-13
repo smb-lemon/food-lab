@@ -121,3 +121,22 @@ function Navbar() {
 
 export default Navbar
 ```
+### Styled Component Setup
+```sh
+npm install styled-components
+```
+Example:
+```js
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import Wrapper from '../assets/wrapper/Navbar'
+
+function Navbar() {
+  return 
+    <Wrapper>
+        <div>
+          Hello
+        </div>
+    </Wrapper>
+}
+```
