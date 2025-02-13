@@ -62,3 +62,7 @@ const App = () => {
 };
 export default App;
 ```
+### Component Setup
+
+We can setup component into index file by exporting them into it. We can update react router element with
+components and display them into pages.
