@@ -4,13 +4,31 @@ import { About, Error, Food, HomeLayout, Landing, Newsletter } from "./pages";
 const router = createBrowserRouter([
   {
     path:'/',
-    element:< HomeLayout />
+    element:< HomeLayout />,
+    children: [
+      {
+        index: true,
+        element:<Landing />
+        
+      },
+      {
+        path:'/about',
+        element:<About />
+        
+      },
+      {
+        path:'/newsletter',
+        element:<Newsletter />
+        
+      },
+      {
+        path:'/food',
+        element:<Food />
+        
+      },
+    ]
   },
-  {
-    path:'/about',
-    element:<About />
-    
-  },
+  
 ])
 
 const App = () => {
