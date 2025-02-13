@@ -86,3 +86,38 @@ or
  ### Nesting pages(Outlet Component)
 
  We can nest pages using Children. We can nest into children with other component passing as an object element.By passing them, we can show all pages the same content from the root directory. For setting a default root page, we can set `index : true`. We can use `Outlet` component from react router to nest the pages. Also we can do for all the pages for the root page setup.
+
+ ### Navbar
+
+ We can create a component called Navbar for navbar panel in this project.In navbar, we can create nav tag to place all the element in it.
+ We can add a div with class nav-center and a span inside the div.We can 
+ create another div with class nav-links and set the component Navlink of the react router to link the navbar.
+ ```js
+ import React from 'react'
+import { NavLink } from 'react-router-dom'
+
+function Navbar() {
+  return (
+    <nav>
+        <div className="nav-center">
+            <span className='logo'>
+                Food Lab
+            </span>
+            <div className="nav-links">
+                < NavLink to='/' className='nav-link' >
+                    Home
+                </NavLink>
+                < NavLink to='/about' className='nav-link' >
+                    About
+                </NavLink>
+                < NavLink to='/newsletter' className='nav-link' >
+                    Newsletter
+                </NavLink>
+            </div>
+        </div>
+    </nav>
+  )
+}
+
+export default Navbar
+```
