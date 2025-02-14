@@ -186,3 +186,38 @@ const About = () => {
 
 export default About;
 ```
+#### Error Page
+
+In the error page, we can show error 404 using the following
+snippet : 
+```js
+import Wrapper from '../assets/wrappers/Error';
+import { Link, useRouteError } from 'react-router-dom';
+import img from 'image-location';
+
+const Error = () => {
+  const error = useRouteError();
+  console.log(error);
+  if (error.status === 404) {
+    return (
+      <Wrapper>
+        <div>
+          <img src={img} alt='not found' />
+          <h3>text </h3>
+          <p>Text</p>
+          <Link to='/'>back home</Link>
+        </div>
+      </Wrapper>
+    );
+  }
+  return (
+    <Wrapper>
+      <div>
+        <h3>text</h3>
+      </div>
+    </Wrapper>
+  );
+};
+
+export default Error;
+```
