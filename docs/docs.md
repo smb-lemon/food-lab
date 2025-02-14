@@ -140,3 +140,8 @@ function Navbar() {
     </Wrapper>
 }
 ```
+### About Page
+
+We can set about page into h3 tag and a para describing the about info.
+The page will contain the details of the project.
+
