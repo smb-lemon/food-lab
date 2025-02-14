@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Food() {
+ const Food = () => {
   return (
-    <h1>Food</h1>
+    <div>Food</div>
   )
 }
-
-export default Food
+export default Food;

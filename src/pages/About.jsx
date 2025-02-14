@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Wrapper from '../assets/wrapper/AboutPage'
 
-function About() {
+const About = () => {
   return (
     <Wrapper>
         <h3>About Us</h3>
