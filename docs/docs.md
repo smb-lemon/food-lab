@@ -145,3 +145,6 @@ function Navbar() {
 We can set about page into h3 tag and a para describing the about info.
 The page will contain the details of the project.
 
+### Layout Pages
+
+To set a common layout of the pages, we can set `Outlet` component of react router. We can add a section with a classname page in HomeLayout page and add outlet component.Then we can style them using the styled component.
