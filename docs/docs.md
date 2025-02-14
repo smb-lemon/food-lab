@@ -148,3 +148,7 @@ The page will contain the details of the project.
 ### Layout Pages
 
 To set a common layout of the pages, we can set `Outlet` component of react router. We can add a section with a classname page in HomeLayout page and add outlet component.Then we can style them using the styled component.
+
+### Error Handling
+
+We can add the Link component to link up navigating back to homepage.Then we will use `RouteError` as a hook to which will give us access to error.We can import `Link` & `useRouterError` from react router dom. We can also import the image from the assets. Then we can set error as useRouterError function. For the 404 error status , we can set the status into if condition and add the images and other details and placed them into the div and return them. We can return different values if the status is different.
