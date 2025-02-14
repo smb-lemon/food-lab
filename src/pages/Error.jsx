@@ -8,23 +8,23 @@ const Error = () => {
 
   if(error.status === 404){
     return (
-    <div>
+    <Wrapper>
       <div>
         <img src={img} alt="not found" />
         <h3>Oops!</h3>
         <p> Looks like the dish you’re craving is missing from the menu. 🍔🥗</p>
         <Link to='/'>back home</Link>
       </div>
-    </div>
+    </Wrapper>
     )
   }
   
   return (
-    <div>
+    <Wrapper>
       <div>
         <h3>something went wrong</h3>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 
