@@ -163,3 +163,75 @@ details and placed them into the div and return them. We can return different va
 ### Styling Error
 
 We can set the main div of the Error file to Wrapper component for styling. We can import the wrapper from the styled component named error.
+
+### Loader
+
+Each route can define a `"loader"` function to provide data to the route element before it renders.
+
+- must return something even `"null"` otherwise error
+
+#### useEffect approach
+
+Landing.jsx
+
+```js
+const fetchSomething = async () => {
+  try {
+    const response = await axios.get('/someUrl');
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+useEffect(() => {
+  fetchSomething();
+}, []);
+```
+
+### Loader Approach
+```js
+import { useLoaderData } from 'react-router-dom';
+
+export const loader = async () => {
+  return 'something';
+};
+
+const Landing = () => {
+  const data = useLoaderData();
+  console.log(data);
+  return <h1>Landing</h1>;
+};
+export default Landing;
+```
+app.jsx
+```js
+import { loader as landingLoader } from './pages/Landing.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement:<Error/>
+    children: [
+      {
+        index: true,
+        loader: landingLoader,
+        element: <Landing />,
+      },
+  
+  
+  // alternative approach
+      {
+        index: true,
+        loader: () => {
+          // do stuff here
+        },
+        element: <Landing />,
+
+      },
+      // rest of the routes
+    ],
+  },
+]);
+```
