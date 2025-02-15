@@ -1,15 +1,41 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
+import axios from 'axios';
+
+const foodSearchUrl = 'https://api.spoonacular.com/recipes/random';
+
 export const loader = async () => {
-  return 'someting';
+  try {
+    const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+    const response = await axios.get(`${foodSearchUrl}`, {
+      params: {
+        apiKey: API_KEY,
+        number:4,
+      }
+    })
+    console.log(response);
+    return response.data.recipes;
+  } catch(error) {
+      throw new Error("Failed to fetch data")
+  }
 };
 const Landing = () => {
-  const data = useLoaderData();
-  console.log(data);
+  const recipes = useLoaderData();
   return (
-    <h1>Landing</h1>
+    <div>
+      <h1>Food Recipe</h1>
+      <ul>
+        {recipes.map((recipe)=>{
+          <li key={recipe.id}>
+            <h3>{recipe.title}</h3>
+            <img src={recipe.image} alt={recipe.title} width='200'/>
+          </li>
+        })}
+      </ul>
+    </div>
   )
-}
+ }
+
 
 export default Landing
 
