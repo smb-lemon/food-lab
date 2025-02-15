@@ -3,7 +3,7 @@ import React from 'react';
 const Newsletter = () => {
   return (
     <form className='form'>
-      <h4>our newsletter</h4>
+      <h4 style={{textAlign:'center', marginBottom: '2rem'}}>our newsletter</h4>
       <div className='form-row'>
         <label htmlFor="name" className='form-label'>
           name
@@ -22,9 +22,9 @@ const Newsletter = () => {
         </label>
         <input type="text" className='form-input' name='email' id='email' defaultValue='sample@test.com' />
       </div>
-      <button type='submit' className='btn btn-block'></button>
-    </form>
+      <button type='submit' className='btn btn-block' style={{marginTop: '0.5rem'}}>Submit</button>
+    </form >
   )
 }
 
-export default Newsletter
+export default Newsletter;
