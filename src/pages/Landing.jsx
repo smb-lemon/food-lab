@@ -1,8 +1,9 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
+import Foodlist from '../components/Foodlist';
 
-const foodSearchUrl = 'https://api.spoonacular.com/recipes1/random';
+const foodSearchUrl = 'https://api.spoonacular.com/recipes/random';
 
 export const loader = async () => {
   try {
@@ -22,17 +23,20 @@ export const loader = async () => {
 const Landing = () => {
   const recipes = useLoaderData();
   return (
-    <div>
-      <h1>Food Recipe</h1>
-      <ul>
-        {recipes.map((recipe)=>{
-          <li key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <img src={recipe.image} alt={recipe.title} width='200'/>
-          </li>
-        })}
-      </ul>
-    </div>
+    // <div>
+    //   <h1>Food Recipe</h1>
+    //   <ul>
+    //     {recipes.map((recipe)=>{
+    //       <li key={recipe.id}>
+    //         <h3>{recipe.title}</h3>
+    //         <img src={recipe.image} alt={recipe.title} width='200'/>
+    //       </li>
+    //     })}
+    //   </ul>
+    // </div>
+    <>
+    <Foodlist recipes={recipes}/>
+    </>
   )
  }
 
