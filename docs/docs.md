@@ -264,3 +264,8 @@ npm install --save react-toastify
 ```
 We can import toastify in main.jsx file. Then we can set the component before the App component.
 
+### Newsletter
+
+We can update the newsletter component using form which will be submitted.The form
+will have name, lastName, email input and a submit button.
+
