@@ -243,3 +243,10 @@ env file to store the api key. Then we can set response to axios to get the api 
 with it like api key and number of items.We can then return the response 
 with data. We can catch error using the catcah block.Then we can set Landing page as a useloaderdata and pass the map function to filter out
 the data.
+
+### Single Page Error
+
+For the single page error, we can set up a component called SinglePageError. We can set up this component using useRouterError 
+for error. We have update in import in app file and set the component into the element.
+
+

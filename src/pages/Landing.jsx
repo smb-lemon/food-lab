@@ -2,7 +2,7 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 
-const foodSearchUrl = 'https://api.spoonacular.com/recipes/random';
+const foodSearchUrl = 'https://api.spoonacular.com/recipes1/random';
 
 export const loader = async () => {
   try {
