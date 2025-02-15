@@ -2,7 +2,9 @@ import React from 'react'
 
  const Food = () => {
   return (
-    <div>Food</div>
+    <div>
+      <h1>Food Recipe</h1> 
+    </div>
   )
 }
 export default Food;

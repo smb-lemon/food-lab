@@ -235,3 +235,11 @@ const router = createBrowserRouter([
   },
 ]);
 ```
+### Fetching Spooncular Api
+
+We can import axios for fetching the api. Setting loader as an async
+function ,we can add try-catch block for fetching the api. We can set a
+env file to store the api key. Then we can set response to axios to get the api call. Response will get the url with some parameters assosiated 
+with it like api key and number of items.We can then return the response 
+with data. We can catch error using the catcah block.Then we can set Landing page as a useloaderdata and pass the map function to filter out
+the data.
