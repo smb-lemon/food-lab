@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from '../assets/wrapper/FoodList';
 
 
-const Foodlist = ({recipes}) => {
-   
-  return (
-    
-<div>
+const Foodlist = ({recipes}) => {  
+  return (   
+    <Wrapper>
       <h1>Random Recipes</h1>
       <div className='container-div'>
         {recipes.map((recipe) => (
@@ -18,7 +17,7 @@ const Foodlist = ({recipes}) => {
           </div>
         ))}
       </div>
-    </div>
+    </Wrapper>
   )
 }
 

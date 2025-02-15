@@ -11,7 +11,7 @@ export const loader = async () => {
     const response = await axios.get(`${foodSearchUrl}`, {
       params: {
         apiKey: API_KEY,
-        number:4,
+        number:8,
       }
     })
     console.log(response);
