@@ -249,4 +249,9 @@ the data.
 For the single page error, we can set up a component called SinglePageError. We can set up this component using useRouterError 
 for error. We have update in import in app file and set the component into the element.
 
+### Food List
 
+To set up foodlist, we can create two component named foodlist and 
+foodcard. We can pass the prop recipe from Landing file. Then we can 
+iterate through mapping and set the id and images. We can return the image and id. We can again map through the recipe return the value into
+foodcard to show card information.
