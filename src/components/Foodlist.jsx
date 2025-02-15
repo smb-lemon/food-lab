@@ -1,17 +1,24 @@
 import React from 'react'
-import Foodcard from './Foodcard';
+
 
 const Foodlist = ({recipes}) => {
-    const foodInfo = recipes.map((recipe)=>{
-        const {foodId, foodImage} = recipe;
-        return {id:foodId, image: foodImage}
-    })
+   
   return (
-    <>
-        {foodInfo.map((item)=>{
-            return <Foodcard key={item.id} item ={item} {...item}/>
-        })}
-    </>
+    
+<div>
+      <h1>Random Recipes</h1>
+      <div className='container-div'>
+        {recipes.map((recipe) => (
+          <div key={recipe.id} className='card-div'>
+            <h3>{recipe.title}</h3>
+            <img src={recipe.image} alt={recipe.title} className='img' />
+            <p><strong>Time:</strong> {recipe.readyInMinutes} mins</p>
+            <p><strong>Servings:</strong> {recipe.servings}</p>
+            <a href={recipe.sourceUrl} target="_blank" rel="noopener noreferrer">View Recipe</a>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
