@@ -255,3 +255,12 @@ To set up foodlist, we can create two component named foodlist and
 foodcard. We can pass the prop recipe from Landing file. Then we can 
 iterate through mapping and set the id and images. We can return the image and id. We can again map through the recipe return the value into
 foodcard to show card information.
+
+### React Toastify
+
+Install: 
+```sh
+npm install --save react-toastify
+```
+We can import toastify in main.jsx file. Then we can set the component before the App component.
+
