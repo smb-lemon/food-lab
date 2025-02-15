@@ -23,23 +23,11 @@ export const loader = async () => {
 const Landing = () => {
   const recipes = useLoaderData();
   return (
-    // <div>
-    //   <h1>Food Recipe</h1>
-    //   <ul>
-    //     {recipes.map((recipe)=>{
-    //       <li key={recipe.id}>
-    //         <h3>{recipe.title}</h3>
-    //         <img src={recipe.image} alt={recipe.title} width='200'/>
-    //       </li>
-    //     })}
-    //   </ul>
-    // </div>
     <>
     <Foodlist recipes={recipes}/>
     </>
   )
  }
-
 
 export default Landing
 
