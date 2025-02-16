@@ -17,7 +17,8 @@
     "react-router-dom": "^6.29.0",
     "react-toastify": "^9.1.3",
     "spoonacular": "^2.0.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

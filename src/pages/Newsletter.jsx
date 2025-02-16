@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, redirect } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import validator from 'validator';
 
 export const action = async({request}) => {
   const formData = await request.formData();
@@ -11,7 +12,13 @@ export const action = async({request}) => {
   if (!data.email || !data.name) {
     toast.error("Name and Email are required!");
     return null;
-  }try {
+  }
+  if (!validator.isEmail(data.email)) {
+      toast.error("Invalid email format!");
+      return null;
+    }
+  
+  try {
     toast.success(`Form submitted successfully`);
   return redirect('/');
   } catch (error) {
