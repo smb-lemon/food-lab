@@ -280,3 +280,9 @@ with await request with the formdata function. Then we can set Objecty.formEntri
 
 We can submit the form and redirect back to home using redirect component. We can show toast popup with
 the toast.success . Then we can set return redirect to homepage location.
+
+### Error of newsletter
+
+To solve the error, we can validate the data using toast and validator.If the data of email and name are empty, then it will show pop-up and
+return null. If the form is successful, it will show success mgs and if error, it will show the error.
+
