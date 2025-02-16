@@ -269,3 +269,9 @@ We can import toastify in main.jsx file. Then we can set the component before th
 We can update the newsletter component using form which will be submitted.The form
 will have name, lastName, email input and a submit button.
 
+### Submit Form Using React Router Action Component
+
+For the form submission, we can use react router's component called Form.
+We can import the form component from react router. We can set export the action variable pass as async function and in async function we can 
+pass the request. this function will have a return value. Then we can import the action to the app file and pass action element to the newsletter page. For the data, we can set formdata function and initiate
+with await request with the formdata function. Then we can set Objecty.formEntries to data variable and also pass the formData into formEntries.
