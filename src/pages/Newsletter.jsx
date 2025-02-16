@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, redirect } from 'react-router-dom';
+import { Form, redirect,useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import validator from 'validator';
@@ -42,6 +42,8 @@ try {
 }
 
 const Newsletter = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting'
   return (
     <Form className='form' method='POST'>
       <h4 style={{textAlign:'center', marginBottom: '2rem'}}>our newsletter</h4>
@@ -63,7 +65,9 @@ const Newsletter = () => {
         </label>
         <input type="text" className='form-input' name='email' id='email' defaultValue='sample@test.com' />
       </div>
-      <button type='submit' className='btn btn-block' style={{marginTop: '0.5rem'}}>Submit</button>
+      <button type='submit' className='btn btn-block' style={{marginTop: '0.5rem'}} disabled={isSubmitting}>
+        {isSubmitting ? 'submitting': 'submit'}
+      </button>
     </Form >
   )
 }
