@@ -1,11 +1,24 @@
 import React from 'react';
-import { Form } from 'react-router-dom';
+import { Form, redirect } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const action = async({request}) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
-  return null;
+  //console.log(data);
+
+  if (!data.email || !data.name) {
+    toast.error("Name and Email are required!");
+    return null;
+  }try {
+    toast.success(`Form submitted successfully`);
+  return redirect('/');
+  } catch (error) {
+    toast.error("Failed to submit the form.Please try again");
+    return null;
+  }
+  
 }
 
 const Newsletter = () => {
