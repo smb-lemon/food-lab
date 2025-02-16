@@ -9,6 +9,19 @@ export const action = async({request}) => {
   const data = Object.fromEntries(formData);
   //console.log(data);
 
+// For Using an API //
+/*
+const API_URL = '';
+try {
+  const response = await axios.post(API_URL,data)
+  toast.success(response.data.API_URL_Element);
+  return redirect('/');
+} catch (error) {
+  toast.error(error?.response?.data?.API_URL_Element);
+  return error;
+}
+*/
+
   if (!data.email || !data.name) {
     toast.error("Name and Email are required!");
     return null;
