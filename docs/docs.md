@@ -285,4 +285,16 @@ the toast.success . Then we can set return redirect to homepage location.
 
 To solve the error, we can validate the data using toast and validator.If the data of email and name are empty, then it will show pop-up and
 return null. If the form is successful, it will show success mgs and if error, it will show the error.
+validator: 
+```sh
+npm install validator
+```
+for email validation , we can use validator component,
+```js
+import validator from "validator";
 
+if (!validator.isEmail(data.email)) {
+  toast.error("Invalid email format!");
+  return null;
+}
+```
