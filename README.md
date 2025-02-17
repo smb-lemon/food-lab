@@ -337,3 +337,86 @@ The FormData interface provides a way to construct a set of key/value pairs repr
 ### React Router - Action
 
 Route actions are the "writes" to route loader "reads". They provide a way for apps to perform data mutations with simple HTML and HTTP semantics while React Router abstracts away the complexity of asynchronous UI and revalidation. This gives you the simple mental model of HTML + HTTP (where the browser handles the asynchrony and revalidation) with the behavior and UX capabilities of modern SPAs.
+
+Newsletter.jsx
+
+```js
+import { Form } from 'react-router-dom';
+
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  return 'something';
+};
+
+const Newsletter = () => {
+  return (
+    <Form className='form' method='POST'>
+    .....)
+}
+```
+App.jsx
+
+```js
+import { action as newsletterAction } from './pages/Newsletter';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: 'newsletter',
+        action: newsletterAction,
+        element: <Newsletter />,
+      },
+    ],
+  },
+]);
+```
+### Try-Catch
+
+Newsletter.jsx
+
+```js
+import { redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+   try {
+    toast.success(`Form submitted successfully`);
+  return redirect('/');
+  } catch (error) {
+    toast.error("Failed to submit the form.Please try again");
+    return null;
+  }
+};
+```
+### Submission State
+
+Newsletter.jsx
+
+```js
+import { Form, useNavigation } from 'react-router-dom';
+
+const Newsletter = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+  return (
+    <Form className='form' method='POST'>
+      ....
+      <button
+        type='submit'
+        className='btn btn-block'
+        style={{ marginTop: '0.5rem' }}
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? 'submitting...' : 'submit'}
+      </button>
+    </Form>
+  );
+};
+```
