@@ -2,6 +2,7 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 import Foodlist from '../components/Foodlist';
+import Searchform from '../components/Searchform';
 
 const foodSearchUrl = 'https://api.spoonacular.com/recipes/random';
 
@@ -24,6 +25,7 @@ const Landing = () => {
   const recipes = useLoaderData();
   return (
     <>
+    <Searchform />
     <Foodlist recipes={recipes}/>
     </>
   )
