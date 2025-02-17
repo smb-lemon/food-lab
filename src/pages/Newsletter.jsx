@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, redirect } from 'react-router-dom';
+import { Form, redirect,useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import validator from 'validator';
@@ -8,6 +8,19 @@ export const action = async({request}) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   //console.log(data);
+
+// For Using an API //
+/*
+const API_URL = '';
+try {
+  const response = await axios.post(API_URL,data)
+  toast.success(response.data.API_URL_Element);
+  return redirect('/');
+} catch (error) {
+  toast.error(error?.response?.data?.API_URL_Element);
+  return error;
+}
+*/
 
   if (!data.email || !data.name) {
     toast.error("Name and Email are required!");
@@ -29,6 +42,8 @@ export const action = async({request}) => {
 }
 
 const Newsletter = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting'
   return (
     <Form className='form' method='POST'>
       <h4 style={{textAlign:'center', marginBottom: '2rem'}}>our newsletter</h4>
@@ -50,7 +65,9 @@ const Newsletter = () => {
         </label>
         <input type="text" className='form-input' name='email' id='email' defaultValue='sample@test.com' />
       </div>
-      <button type='submit' className='btn btn-block' style={{marginTop: '0.5rem'}}>Submit</button>
+      <button type='submit' className='btn btn-block' style={{marginTop: '0.5rem'}} disabled={isSubmitting}>
+        {isSubmitting ? 'submitting': 'submit'}
+      </button>
     </Form >
   )
 }

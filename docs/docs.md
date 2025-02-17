@@ -298,3 +298,11 @@ if (!validator.isEmail(data.email)) {
   return null;
 }
 ```
+### Submitting State
+
+We can use useNavigation for changing state of the submit form. We can
+import useNavigation and in the newsletter function, we can pass the 
+function as navigation variable. Then we can set another variable named
+isSubmititng and pass the navigation.state === 'submitting'. We can set 
+the submit button as disabled={isSubmitting} and if isSubmitting is true,
+display submitting otherwise submit.
