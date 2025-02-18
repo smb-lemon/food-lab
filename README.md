@@ -420,3 +420,36 @@ const Newsletter = () => {
   );
 };
 ```
+#### Attributes
+
+- remove defaultValue and add required
+- cover required and defaultValue
+
+#### Search Form - Setup
+
+components/SearchForm.jsx
+
+```js
+import { Form, useNavigation } from 'react-router-dom';
+const SearchForm = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+  return (
+    <div>
+      <Form className='form'>
+        <input
+          type='search'
+          name='search'
+          className='form-input'
+          defaultValue=''
+        />
+        <button type='submit' className='btn' disabled={isSubmitting}>
+          {isSubmitting ? 'searching...' : 'search'}
+        </button>
+      </Form>
+    </div>
+  );
+};
+
+export default SearchForm;
+```
