@@ -1,19 +1,29 @@
-import React from 'react';
-import { Form, useNavigation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Form } from 'react-router-dom';
+import '../index.css';
 
-const Searchform = () => {
-    const navigation = useNavigation();
-    const isSubmitting = navigation.state === 'searching...';
+const Searchform = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onSearch(query);
+    }
+  };
+
   return (
-    <div>
-        <Form className='form'>
-            <input type='search' name='search' className='form-input' defaultValue='burger' />
-            <button className='btn' type='submit' disabled={isSubmitting}>
-                {isSubmitting ? 'searching...' : 'search'}
-            </button>
-        </Form>
-    </div>
-  )
-}
+    <Form className='form' onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className='form-input'
+        placeholder="Search for recipes..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button type="submit" className='btn'>Search</button>
+    </Form>
+  );
+};
 
 export default Searchform;
