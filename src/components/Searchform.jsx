@@ -21,7 +21,7 @@ const Searchform = ({ onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button type="submit" className='btn'>Search</button>
+      <button type="submit" className='btn'>Search Food</button>
     </Form>
   );
 };
